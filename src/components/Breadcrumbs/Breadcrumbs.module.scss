@@ -1,0 +1,38 @@
+@import '/src/scss/variables';
+
+.breadcrumbsRoot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  overflow: hidden;
+
+  > * {
+    color: var(--color-blue-jasmine-1000);
+
+    white-space: nowrap;
+
+    @include text-sm(500);
+  }
+
+  [data-element='breadcrumbs-separator-icon'] {
+    color: var(--color-blue-jasmine-1400);
+  }
+}
+
+.link {
+  &:hover,
+  &:focus {
+    color: var(--color-blue-jasmine-1200);
+  }
+}
+
+.item {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.lastItem {
+  color: var(--color-blue-jasmine-1400);
+}

@@ -1,0 +1,84 @@
+@import 'src/scss/variables';
+
+.collapsibleAreaRoot {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-blue-jasmine-1100);
+
+  cursor: pointer;
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  &[data-state='open'] {
+    .trigger {
+      svg {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  h5 {
+    margin: 0;
+
+    color: var(--color-blue-jasmine-1000);
+
+    @include text-xtn(600);
+  }
+}
+
+.trigger.trigger {
+  --p-vertical: 0;
+
+  position: relative;
+  z-index: 1;
+
+  color: var(--color-grey-500);
+
+  border-radius: 4px;
+
+  svg {
+    transform: rotate(-90deg);
+
+    @include transition-fast(transform);
+  }
+}
+
+.content {
+  overflow: hidden;
+
+  &[data-state='open'] {
+    animation: slide-down 200ms ease-out;
+  }
+
+  &[data-state='closed'] {
+    animation: slide-up 200ms ease-out;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}

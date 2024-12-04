@@ -1,0 +1,41 @@
+@import 'src/scss/variables';
+
+.inputLabelRoot {
+  --input-label-max-width: none;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+  width: 100%;
+  max-width: var(--input-label-max-width);
+}
+
+.label {
+  min-height: 1.125rem;
+
+  @include text-sm(500);
+  color: var(--color-blue-jasmine-1400);
+}
+
+.labelIcon {
+  color: var(--color-blue-jasmine-900);
+
+  transform: rotate(180deg);
+}
+
+.labelWrapper {
+  display: flex;
+
+  gap: 2px;
+  align-items: center;
+  max-width: var(--input-label-max-width);
+}
+
+.textIndicator {
+  margin-left: auto;
+
+  color: var(--color-blue-jasmine-800);
+
+  @include text-tn();
+}

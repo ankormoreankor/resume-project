@@ -1,0 +1,112 @@
+@import 'src/scss/variables';
+
+.root {
+  --checkbox-size: 20px;
+
+  &:hover:not(.isDisabled) {
+    .checkbox {
+      border-color: $blue-jasmine-600;
+    }
+
+    .checkbox[data-state='checked'],
+    .checkbox[data-state='indeterminate'] {
+      background-color: $blue-jasmine-1300;
+      border-color: $blue-jasmine-1300;
+    }
+  }
+
+  &:focus-within:not(.isDisabled) {
+    .checkbox {
+      box-shadow: 0 0 0 2px $brand-300;
+    }
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: var(--checkbox-size);
+  max-width: var(--checkbox-size);
+  min-height: var(--checkbox-size);
+  max-height: var(--checkbox-size);
+
+  color: $white;
+
+  line-height: 1;
+
+  background-color: $white;
+  border: 1.5px solid var(--color-blue-jasmine-500);
+
+  border-radius: 6px;
+
+  appearance: checkbox;
+
+  @include transition-instant(border-color, background-color, box-shadow);
+
+  &[data-state='checked'],
+  &[data-state='indeterminate'] {
+    background-color: $blue-jasmine-1400;
+    border-color: $blue-jasmine-1400;
+
+    &[data-disabled] {
+      border-color: var(--color-blue-jasmine-500);
+    }
+  }
+
+  &[data-disabled] {
+    color: $blue-jasmine-600;
+
+    background-color: $blue-jasmine-400;
+    cursor: default;
+  }
+}
+
+.checkbox svg {
+  display: flex;
+}
+
+.checkbox.large {
+  --checkbox-size: 20px;
+
+  padding: 1.5px;
+}
+
+.checkbox.medium {
+  --checkbox-size: 16px;
+
+  padding: 0.5px;
+}
+
+.checkbox.isRound {
+  border-radius: 50%;
+}
+
+.labeled {
+  display: inline-flex;
+  gap: 8px;
+  align-items: flex-start;
+
+  @include text-sm();
+
+  .checkbox {
+    margin-top: 2px;
+  }
+}
+
+.labelText {
+  cursor: pointer;
+}
+
+.labelText.medium {
+  @include text-sm();
+}
+
+.labelText.large {
+  @include text-md();
+}
+
+.labelText.alignRight {
+  text-align: right;
+}

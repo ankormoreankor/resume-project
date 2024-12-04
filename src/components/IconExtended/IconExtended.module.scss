@@ -1,0 +1,18 @@
+@import '/src/scss/variables';
+
+.iconExtendedRoot {
+  --icon-size: 20px;
+
+  min-width: var(--icon-size);
+  max-width: var(--icon-size);
+  min-height: var(--icon-size);
+  max-height: var(--icon-size);
+
+  pointer-events: none;
+}
+
+.isWithCustomStrokeWidth {
+  path {
+    stroke-width: inherit;
+  }
+}

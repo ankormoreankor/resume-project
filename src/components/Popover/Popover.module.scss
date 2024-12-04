@@ -1,0 +1,9 @@
+@import 'src/scss/variables';
+
+.popoverRoot {
+  padding: 8px;
+
+  background-color: var(--color-white);
+  border-radius: 7px;
+  box-shadow: var(--shadow-md-bordered);
+}

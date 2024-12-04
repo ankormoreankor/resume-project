@@ -1,0 +1,7 @@
+*.tsbuildinfo
+.github/
+build/
+coverage/
+node_modules/
+storybook-static/
+allure-results/

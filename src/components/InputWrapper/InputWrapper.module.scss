@@ -1,0 +1,84 @@
+@import 'src/scss/variables';
+
+.inputWrapperRoot {
+  --shadow: none;
+  --bg-color: var(--color-white);
+  --input-height: unset;
+  --input-gap: 6px;
+  --input-padding-v: 8px;
+  --input-padding-h: 10px;
+
+  position: relative;
+
+  display: flex;
+
+  gap: var(--input-gap);
+  align-content: start;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-height: var(--input-height);
+  padding: var(--input-padding-v) var(--input-padding-h);
+
+  color: var(--color-blue-jasmine-1400);
+
+  background-color: var(--bg-color);
+  border-radius: 8px;
+
+  @include text-sm(500);
+
+  &::after {
+    position: absolute;
+    z-index: 1;
+
+    border-radius: inherit;
+
+    box-shadow: var(--shadow);
+
+    content: '';
+    pointer-events: none;
+    inset: 0;
+  }
+
+  ::placeholder {
+    color: var(--color-blue-jasmine-900);
+  }
+}
+
+.inputWrapperRoot.primary {
+  --shadow: var(--shadow-input-default);
+}
+
+.inputWrapperRoot.primary:hover,
+.inputWrapperRoot.primary.isHovered {
+  --shadow: var(--shadow-input-hover);
+}
+
+.inputWrapperRoot.primary:focus-visible,
+.inputWrapperRoot.primary:focus-within,
+.inputWrapperRoot.primary.isFocused {
+  --shadow: var(--shadow-focus-default);
+}
+
+.inputWrapperRoot.destructive,
+.inputWrapperRoot.destructive:hover,
+.inputWrapperRoot.destructive.isHovered,
+.inputWrapperRoot.destructive[disabled],
+.inputWrapperRoot.destructive.isDisabled {
+  --bg-color: var(--color-error-200);
+  --shadow: var(--shadow-input-destructive-default);
+}
+
+.inputWrapperRoot.destructive:focus-visible,
+.inputWrapperRoot.destructive:focus-within,
+.inputWrapperRoot.destructive.isFocused {
+  --shadow: var(--shadow-input-destructive-focus);
+}
+
+.inputWrapperRoot.primary[disabled],
+.inputWrapperRoot.primary.isDisabled,
+.inputWrapperRoot.destructive[disabled],
+.inputWrapperRoot.destructive.isDisabled {
+  --shadow: var(--shadow-input-disabled);
+  --bg-color: var(--color-blue-jasmine-200);
+}

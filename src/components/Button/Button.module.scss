@@ -1,0 +1,299 @@
+@import 'src/scss/variables';
+
+.buttonRoot {
+  --p-vertical: 8px;
+  --p-horizontal: var(--p-vertical);
+  --bg-color: var(--color-blue-jasmine-1400);
+  --color: var(--color-blue-jasmine-1200);
+  --shadow: var(--shadow-button-solid);
+  --border-color: transparent;
+  --shadow-button-destructive-focus: 0px 0px 0px 3px var(--color-white) inset;
+  --pseudo-border: 1px solid var(--border-color);
+
+  display: flex;
+
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: var(--p-vertical) var(--p-horizontal);
+
+  color: var(--color);
+  white-space: nowrap;
+
+  background-color: var(--bg-color);
+  border-radius: 8px;
+
+  box-shadow: var(--shadow);
+
+  @include text-sm(500);
+  @include pseudo-border();
+}
+
+// variants
+.buttonRoot.primary {
+  --color: var(--color-white);
+  --shadow: var(--shadow-button-outline);
+}
+
+.buttonRoot.secondary {
+  --bg-color: var(--color-blue-jasmine-300);
+  --shadow: none;
+}
+
+.buttonRoot.tertiary {
+  --bg-color: var(--color-white);
+  --color: var(--color-blue-jasmine-1200);
+  --shadow: none;
+}
+
+.buttonRoot.bordered {
+  --bg-color: var(--color-white);
+  --color: var(--color-blue-jasmine-1200);
+  --shadow: var(--shadow-button-outline);
+  --pseudo-border: none;
+}
+
+.buttonRoot.bordered.isShadowless {
+  --shadow: 0px 0px 0px 1px rgba(13, 33, 83, 0.1), 0px 2px 6px 0px rgba(13, 33, 83, 0.04);
+}
+
+.buttonRoot.transparent {
+  --bg-color: transparent;
+  --shadow: none;
+}
+
+.buttonRoot.destructive {
+  --bg-color: var(--color-error-800);
+  --color: var(--color-white);
+  --shadow: var(--shadow-button-destructive);
+}
+
+.buttonRoot.link {
+  --bg-color: none;
+  --color: initial;
+  --shadow: none;
+  --pseudo-border: none;
+
+  display: inline-flex;
+  padding: 0;
+}
+
+// sizes
+.buttonRoot.large {
+  --p-vertical: 13px;
+  border-radius: 12px;
+
+  @include text-md(500);
+
+  &.isRectangular {
+    --p-vertical: 10px;
+    --p-horizontal: 13px;
+  }
+}
+
+.buttonRoot.medium {
+  --p-vertical: 11px;
+  border-radius: 10px;
+
+  &.isRectangular {
+    --p-vertical: 10px;
+    --p-horizontal: 12px;
+  }
+}
+
+.buttonRoot.small {
+  --p-vertical: 9px;
+
+  &.isRectangular {
+    --p-vertical: 8px;
+    --p-horizontal: 10px;
+  }
+}
+
+.buttonRoot.xSmall {
+  --p-vertical: 7px;
+
+  @include text-xs(500);
+
+  &.isRectangular {
+    --p-vertical: 6px;
+    --p-horizontal: 8px;
+  }
+}
+
+.buttonRoot.tiny {
+  --p-vertical: 6px;
+  border-radius: 7px;
+
+  @include text(0.75rem, 1rem, 500);
+
+  &.isRectangular {
+    --p-vertical: 6px;
+    --p-horizontal: 8px;
+  }
+}
+
+// states
+.buttonRoot.isLoading {
+  .spinner {
+    animation: spin 1s linear infinite;
+  }
+}
+
+.buttonRoot.primary.isHovered,
+.buttonRoot.primary:hover {
+  --bg-color: var(--color-blue-jasmine-1300);
+}
+
+.buttonRoot.secondary.isHovered,
+.buttonRoot.secondary:hover {
+  --bg-color: var(--color-blue-jasmine-400);
+}
+
+.buttonRoot.tertiary.isHovered,
+.buttonRoot.tertiary:hover {
+  --bg-color: var(--color-blue-jasmine-200);
+}
+
+.buttonRoot.bordered.isHovered,
+.buttonRoot.bordered:hover {
+  --bg-color: var(--color-blue-jasmine-200);
+}
+
+.buttonRoot.transparent.isHovered,
+.buttonRoot.transparent:hover {
+  --bg-color: var(--color-blue-jasmine-200);
+}
+
+.buttonRoot.destructive.isHovered,
+.buttonRoot.destructive:hover {
+  --bg-color: var(--color-error-900);
+}
+
+.buttonRoot.primary.isFocused,
+.buttonRoot.primary:focus-visible {
+  --shadow: var(--shadow-focus-tertiary);
+  --bg-color: var(--color-blue-jasmine-1400);
+}
+
+.buttonRoot.secondary.isFocused,
+.buttonRoot.secondary:focus-visible,
+.buttonRoot.tertiary.isFocused,
+.buttonRoot.tertiary:focus-visible,
+.buttonRoot.bordered.isFocused,
+.buttonRoot.bordered:focus-visible,
+.buttonRoot.transparent.isFocused,
+.buttonRoot.transparent:focus-visible {
+  --shadow: var(--shadow-focus-default);
+  --bg-color: var(--color-white);
+}
+
+.buttonRoot.destructive.isFocused,
+.buttonRoot.destructive:focus-visible {
+  --shadow: var(--shadow-focus-destructive);
+  --bg-color: var(--color-error-800);
+}
+
+.buttonRoot.tertiary.isFocused,
+.buttonRoot.tertiary:focus-visible {
+  --border-color: transparent;
+}
+
+.buttonRoot.bordered.isFocused,
+.buttonRoot.bordered:focus-visible {
+  --border-color: transparent;
+}
+
+.buttonRoot.primary.isPressed,
+.buttonRoot.primary:active {
+  --bg-color: var(--color-blue-jasmine-1400);
+  --shadow: var(--shadow-focus-secondary);
+  --border-color: var(--color-white);
+
+  &::after {
+    border-width: 1px;
+  }
+}
+
+.buttonRoot.secondary.isPressed,
+.buttonRoot.secondary:active,
+.buttonRoot.tertiary.isPressed,
+.buttonRoot.tertiary:active,
+.buttonRoot.bordered.isPressed,
+.buttonRoot.bordered:active,
+.buttonRoot.transparent.isPressed,
+.buttonRoot.transparent:active {
+  --bg-color: var(--color-white);
+  --shadow: inset 0 0 0 1.5px var(--color-blue-jasmine-1400);
+}
+
+.buttonRoot.destructive.isPressed,
+.buttonRoot.destructive:active {
+  --bg-color: var(--color-error-800);
+  --shadow: var(--shadow-button-destructive-focus);
+  --pseudo-border: 2px solid var(--color-error-800);
+}
+
+.buttonRoot.link.isHovered,
+.buttonRoot.link:hover,
+.buttonRoot.link.isFocused,
+.buttonRoot.link:focus-visible,
+.buttonRoot.link.isPressed,
+.buttonRoot.link:active {
+  &::after {
+    position: absolute;
+    top: 95%;
+    right: 0;
+    left: 0;
+
+    height: 1.5px;
+
+    background-color: currentcolor;
+    border-radius: 2px;
+
+    content: '';
+  }
+}
+
+.buttonRoot.isDisabled,
+.buttonRoot.isDisabled:hover,
+.buttonRoot.isDisabled:focus-visible,
+.buttonRoot.isDisabled:active {
+  --color: var(--color-blue-jasmine-900);
+  --bg-color: var(--color-blue-jasmine-400);
+  --border-color: var(--color-blue-jasmine-400);
+  --shadow: none;
+}
+
+.buttonRoot.transparent.isDisabled,
+.buttonRoot.link.isDisabled {
+  --bg-color: transparent;
+  --pseudo-border: none;
+}
+
+.buttonRoot.link.isDisabled.isHovered,
+.buttonRoot.link.isDisabled:hover {
+  &::after {
+    display: none;
+  }
+}
+
+.content {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.tooltip {
+  display: flex;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

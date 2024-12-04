@@ -1,0 +1,67 @@
+@import '/src/scss/variables';
+
+.actionCardRoot {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+
+  height: auto;
+  padding: 12px;
+
+  color: var(--color-blue-jasmine-1200);
+  text-align: start;
+
+  background-color: var(--color-white);
+
+  border-radius: 6px;
+
+  @include text-xs();
+  @include transition-instant(background-color, box-shadow);
+
+  &::after {
+    @include transition-instant(border-color);
+  }
+
+  &:not(.isDisabled) {
+    box-shadow: var(--shadow-button-outline);
+
+    &:hover {
+      color: var(--color-blue-jasmine-1200);
+
+      background-color: var(--color-blue-jasmine-200);
+    }
+
+    &:focus-visible {
+      box-shadow: var(--shadow-focus-default);
+    }
+  }
+
+  &.isDisabled {
+    background-color: var(--color-blue-jasmine-300);
+    box-shadow: var(--shadow-button-outline-disabled);
+  }
+
+  &.isDisabled,
+  &.isDisabled .title {
+    color: var(--color-blue-jasmine-900);
+  }
+}
+
+.container {
+  display: flex;
+  gap: 8px;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.title {
+  display: inline-block;
+  margin-top: 4px;
+
+  color: var(--color-grey-900);
+  font-weight: 500;
+}
+
+.checkbox {
+  padding: 2px;
+}

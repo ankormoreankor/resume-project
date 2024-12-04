@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "strict": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "target": "esnext",
+    "module": "esnext",
+    "composite": false,
+    "incremental": true,
+    "declaration": false,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "inlineSources": false,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "declarationMap": false,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "noUnusedParameters": true,
+    "preserveWatchOutput": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./node_modules/@types", "./types", "./../../node_modules"],
+    "lib": ["dom", "dom.iterable", "es2023", "ESNext.Array"],
+    "types": ["vite/client"]
+  },
+  "paths": {
+    "@src/*": ["./src/*"],
+    "@components/*": ["./src/components/*"],
+    "@icons/*": ["./src/components/icons/*"],
+    "@hooks/*": ["./src/hooks/*"],
+    "@utils/*": ["./src/utils/*"]
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

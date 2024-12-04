@@ -1,0 +1,57 @@
+@import 'src/scss/variables';
+
+.avatarRoot {
+  border-radius: 50%;
+
+  :global(.sb-avatar__text).s10 div span {
+    @include text(8px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s12 div span {
+    @include text(9px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s16 div span {
+    @include text(11px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s18 div span {
+    @include text(12px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s20 div span {
+    @include text(12px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s24 div span {
+    @include text(12px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s32 div span {
+    @include text(14px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s40 div span {
+    @include text(16px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s48 div span {
+    @include text(18px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s56 div span {
+    @include text(20px !important, normal, 500);
+  }
+
+  :global(.sb-avatar__text).s64 div span {
+    @include text(24px !important, normal, 500);
+  }
+
+  &.isBordered {
+    box-shadow: 0 0 0 1px var(--color-grey-300);
+  }
+
+  img {
+    display: block;
+  }
+}

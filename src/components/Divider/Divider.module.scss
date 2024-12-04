@@ -1,0 +1,73 @@
+@import '/src/scss/variables';
+
+.dividerRoot {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include text-tn(500);
+
+  &::before,
+  .dashedLine {
+    position: absolute;
+    z-index: 0;
+
+    display: block;
+    width: 100%;
+
+    content: '';
+  }
+
+  &.line::before {
+    background-color: var(--color-blue-jasmine-300);
+  }
+
+  [data-element='divider-text'] {
+    position: relative;
+
+    display: inline-flex;
+
+    background-color: var(--color-white);
+  }
+
+  &.horizontal {
+    &::before,
+    .dashedLine {
+      top: 50%;
+      left: 0;
+
+      transform: translateY(-50%);
+    }
+
+    &.line::before {
+      height: 1px;
+    }
+
+    [data-element='divider-text'] {
+      padding: 0 20px;
+    }
+  }
+
+  &.vertical {
+    height: 100%;
+
+    &::before,
+    .dashedLine {
+      bottom: 0;
+      left: 50%;
+
+      transform: translateX(-50%);
+    }
+
+    &.line::before {
+      width: 1px;
+      height: 100%;
+    }
+
+    [data-element='divider-text'] {
+      padding: 12px 0;
+    }
+  }
+}

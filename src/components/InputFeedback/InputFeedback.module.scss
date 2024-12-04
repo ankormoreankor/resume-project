@@ -1,0 +1,20 @@
+@import 'src/scss/variables';
+
+.inputFeedbackRoot {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.feedback {
+  --clamped-lines: 3;
+
+  @include text-tn();
+  @include clamp();
+  color: var(--color-blue-jasmine-800);
+}
+
+.feedback:not(.isDisabled).destructive {
+  color: var(--color-error-1000);
+}

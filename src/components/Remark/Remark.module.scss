@@ -1,0 +1,21 @@
+@import 'src/scss/variables';
+
+.remarkRoot {
+  display: inline-flex;
+  gap: 8px;
+  align-items: start;
+
+  padding: 12px;
+
+  color: var(--color-grey-800);
+
+  background-color: var(--color-grey-50);
+
+  border-radius: 8px;
+
+  @include text-xs();
+
+  svg {
+    color: var(--color-grey-900);
+  }
+}

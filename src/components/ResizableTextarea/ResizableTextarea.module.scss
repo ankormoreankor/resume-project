@@ -1,0 +1,42 @@
+@import 'src/scss/variables';
+
+.resizableTextareaRoot {
+  --max-height: 1.5rem;
+  --min-height: 1.5rem;
+  display: grid;
+
+  &::after {
+    white-space: pre-wrap;
+
+    visibility: hidden;
+
+    content: attr(data-replicated-value) ' ';
+  }
+}
+
+.textarea,
+.resizableTextareaRoot::after {
+  grid-area: 1 / 1 / 2 / 2;
+  max-width: 100%;
+  min-height: var(--min-height);
+  max-height: var(--max-height);
+  padding: 0;
+
+  font: inherit;
+  word-break: break-word;
+
+  appearance: none;
+}
+
+.textarea {
+  width: 100%;
+  overflow: hidden;
+
+  border: none;
+
+  resize: none;
+
+  &:focus {
+    outline: none;
+  }
+}

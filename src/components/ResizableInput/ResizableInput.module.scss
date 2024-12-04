@@ -1,0 +1,27 @@
+@import 'src/scss/variables';
+
+.resizableInputRoot {
+  display: inline-grid;
+  width: fit-content;
+
+  &::after {
+    white-space: pre-wrap;
+
+    visibility: hidden;
+
+    content: attr(data-replicated-value) ' ';
+  }
+}
+
+.resizableInputRoot::after,
+.input {
+  grid-area: 1 / 1;
+  width: auto;
+  max-width: 100%;
+  height: fit-content;
+
+  font: inherit;
+  word-break: break-word;
+
+  appearance: none;
+}

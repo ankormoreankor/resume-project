@@ -1,0 +1,58 @@
+@import 'src/scss/variables';
+
+.scrollAreaRoot {
+  margin-right: -5px;
+
+  padding-right: 5px;
+  overflow: hidden;
+
+  &:hover {
+    .scrollbar {
+      opacity: 1;
+    }
+  }
+}
+
+.scrollAreaRoot.isVisible {
+  .scrollbar {
+    opacity: 1;
+  }
+}
+
+.viewport {
+  max-height: 100%;
+}
+
+.scrollarea {
+  z-index: 1;
+  /* ensures no selection */
+
+  /* disable browser handling of all panning and zooming gestures on touch devices */
+  touch-action: none;
+}
+
+.scrollbar {
+  background-color: var(--color-grey-350);
+  border-radius: 2px;
+  opacity: 0;
+
+  @include transition-fast(opacity);
+
+  &[data-element='vertical-scrollbar'] {
+    --radix-scroll-area-thumb-width: 3px;
+  }
+
+  &[data-element='horizontal-scrollbar'] {
+    --radix-scroll-area-thumb-height: 3px;
+  }
+}
+
+.scrollDownButton {
+  position: absolute;
+  bottom: 16px;
+
+  left: 50%;
+  z-index: 1;
+
+  transform: translateX(-50%);
+}

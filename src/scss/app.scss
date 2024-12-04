@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import '../../../../packages/styles/css-variables';
+@import '../../../../packages/styles/normalize';
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+button,
+html [type='button'],
+[type='reset'],
+[type='submit'] {
+  outline: none;
+}
+
+img,
+svg {
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+input,
+textarea {
+  font: inherit;
+
+  outline: none;
+}
+
+::placeholder {
+}

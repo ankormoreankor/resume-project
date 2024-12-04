@@ -1,0 +1,109 @@
+@import 'src/scss/variables';
+
+.tagRoot {
+  --bg-color: var(--color-white);
+
+  display: flex;
+
+  gap: 6px;
+  align-items: center;
+  width: fit-content;
+
+  color: var(--color-blue-jasmine-1100);
+
+  background-color: var(--bg-color);
+  border: var(--border-200);
+  border-radius: 5px;
+  box-shadow: var(--shadow-xs);
+
+  @include fill-available(max-width);
+  @include text-xs(500);
+  @include transition-instant(background-color);
+
+  &.isHoverable:not(.isDisabled):hover {
+    background-color: var(--color-blue-jasmine-300);
+  }
+}
+
+.tagRoot.small {
+  min-height: 24px;
+  padding: 0 6px;
+}
+
+.tagRoot.medium {
+  min-height: 28px;
+  padding: 2px 8px;
+}
+
+.tagRoot.small.isWithIcon {
+  padding-left: 4px;
+}
+
+.tagRoot.medium.isWithIcon {
+  padding-left: 6px;
+}
+
+.tagRoot.small.isWithButtons:not(.isHoverable) {
+  padding-right: 4px;
+}
+
+.tagRoot.medium.isWithButtons:not(.isHoverable) {
+  padding-right: 6px;
+}
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+
+  pointer-events: none;
+}
+
+.isDeleted {
+  text-decoration: line-through;
+}
+
+.isFilled {
+  --bg-color: var(--color-blue-jasmine-300);
+
+  color: var(--color-blue-jasmine-1200);
+
+  border-color: transparent;
+  box-shadow: none;
+
+  &.isHoverable:not(.isDisabled):hover {
+    background-color: var(--color-blue-jasmine-400);
+  }
+}
+
+.tooltip {
+  @include fill-available(max-width);
+}
+
+.tooltipContent {
+  display: grid;
+  gap: 4px;
+
+  cursor: default;
+}
+
+.tooltipContentItem {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  color: var(--color-white);
+}
+
+.buttons {
+  display: flex;
+}
+
+.button.button {
+  --p-vertical: 1px;
+  border-radius: 4px;
+}
+
+.button.button:focus-visible,
+.button.button:hover {
+  --bg-color: transparent;
+}

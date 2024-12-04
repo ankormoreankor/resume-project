@@ -1,0 +1,43 @@
+@import 'src/scss/variables';
+
+.toggleGroupRoot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.item {
+  height: auto;
+  padding: 8px 10px;
+
+  color: var(--color-blue-jasmine-1000);
+
+  background-color: var(--color-blue-jasmine-300);
+  border-radius: 8px;
+
+  @include text-sm(500);
+  @include transition-instant(background-color);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-blue-jasmine-1100);
+
+    background-color: var(--color-blue-jasmine-400);
+  }
+
+  &[data-state='on'] {
+    --pseudo-border: 2px solid var(--color-blue-jasmine-1400);
+    color: var(--color-blue-jasmine-1400);
+
+    background-color: var(--color-white);
+
+    @include pseudo-border();
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-blue-jasmine-1400);
+
+      background-color: var(--color-blue-jasmine-200);
+    }
+  }
+}

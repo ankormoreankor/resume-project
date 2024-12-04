@@ -1,0 +1,58 @@
+@import 'src/scss/variables';
+
+.multiContentPanelRoot {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: start;
+}
+
+.triggers {
+  display: grid;
+  gap: 2px;
+  align-content: start;
+}
+
+.trigger {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  gap: 4px;
+  align-items: center;
+  width: 100%;
+  padding: 7px 8px;
+
+  text-align: start;
+
+  border-radius: 8px;
+
+  @include text-xs(500);
+  @include transition-instant(color, background-color);
+
+  &:hover {
+    color: var(--color-blue-jasmine-1200);
+
+    background-color: var(--color-blue-jasmine-200);
+  }
+
+  &[data-state='active'] {
+    color: var(--color-blue-jasmine-1400);
+
+    background-color: var(--color-blue-jasmine-200);
+
+    .selectedItemMarker {
+      padding: 1px;
+
+      opacity: 1;
+    }
+  }
+}
+
+.selectedItemMarker {
+  opacity: 0;
+
+  @include transition-instant(opacity);
+}
+
+.divider {
+  margin: 0 32px 0 9px;
+}

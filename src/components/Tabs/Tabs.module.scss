@@ -1,0 +1,48 @@
+@import 'src/scss/variables';
+
+.tabsRoot {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  width: fit-content;
+
+  background-color: var(--color-blue-jasmine-200);
+
+  border-radius: 6px;
+}
+
+.tabsRoot.small {
+  padding: 3px;
+}
+
+.tabsRoot.medium {
+  padding: 6px;
+}
+
+.tabsItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-blue-jasmine-900);
+
+  border-radius: 6px;
+
+  @include text-tn(500);
+
+  &[data-state='checked'] {
+    color: var(--color-blue-jasmine-1400);
+
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-button-outline);
+  }
+}
+
+.tabsItem.small {
+  padding: 7px 12px;
+}
+
+.tabsItem.medium {
+  padding: 8px 14px;
+
+  @include text-xs(500);
+}

@@ -1,0 +1,79 @@
+@import 'src/scss/variables';
+
+.collapsibleMenuRoot {
+  [data-element='collapsible-area-header'] {
+    padding-left: 10px;
+
+    text-transform: uppercase;
+  }
+}
+
+.menu {
+  margin: 0;
+
+  color: var(--color-blue-jasmine-1200);
+
+  @include text-xs(500);
+}
+
+.item {
+  display: flex;
+
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+  height: 38px;
+  padding: 0 8px;
+
+  background-color: var(--color-white);
+
+  border-radius: 6px;
+
+  &:hover:not(.isDisabled):not(.isSelected),
+  &:focus-visible:not(.isDisabled):not(.isSelected) {
+    color: var(--color-blue-jasmine-1100);
+
+    background-color: var(--color-blue-jasmine-200);
+  }
+
+  &.isDisabled:not(.isSelected) {
+    color: var(--color-blue-jasmine-900);
+
+    cursor: default;
+  }
+
+  &.isSelected {
+    color: var(--color-blue-jasmine-1400);
+    font-weight: 600;
+  }
+}
+
+.itemText {
+  width: 100%;
+
+  text-align: left;
+}
+
+.itemIcon {
+  --icon-size: 18px;
+}
+
+@keyframes slide-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}

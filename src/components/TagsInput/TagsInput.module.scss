@@ -1,0 +1,41 @@
+@import 'src/scss/variables';
+
+.tagsInputRoot {
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+.input {
+  flex-grow: 1;
+
+  [data-element='resizable-textarea'] {
+    background-color: transparent;
+  }
+}
+
+.input.small {
+  line-height: 24px;
+}
+
+.input.medium {
+  line-height: 28px;
+}
+
+.plusButton.plusButton {
+  --p-vertical: 2px;
+  border-radius: 5px;
+}
+
+.tagWithColor {
+  [data-element='tag-left-content'] {
+    margin-right: -6px;
+  }
+}
+
+.leftContentDropdownTrigger.leftContentDropdownTrigger {
+  --p-vertical: 0;
+  width: 16px;
+  height: 16px;
+
+  border-radius: 4px;
+}

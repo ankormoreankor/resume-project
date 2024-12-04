@@ -1,0 +1,30 @@
+@import 'src/scss/variables';
+
+.indicatorRoot {
+  width: fit-content;
+  padding: 1px 5px;
+
+  color: var(--color-brand-700);
+
+  background-color: var(--color-brand-200);
+
+  border-radius: 4px;
+}
+
+.indicatorRoot.medium {
+  @include text-xs(500);
+  height: 20px;
+  padding: 1px 5px;
+}
+
+.indicatorRoot.small {
+  @include text(0.75rem, 1rem, 500);
+  height: 18px;
+  padding: 1px 4px;
+}
+
+.indicatorRoot.tiny {
+  @include text(0.6875rem, 0.875rem, 500);
+  height: 16px;
+  padding: 1px 4px;
+}

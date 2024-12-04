@@ -1,0 +1,170 @@
+@import 'src/scss/variables';
+
+.tableRoot {
+  --cell-width: 172px;
+  --cell-h-padding: 8px;
+  --cell-v-padding: 10px;
+  --scrollbar-width: 4px;
+  --add-column-width: 40px;
+
+  [data-virtuoso-scroller] {
+    &::-webkit-scrollbar:vertical {
+      width: var(--scrollbar-width);
+    }
+
+    &::-webkit-scrollbar:horizontal {
+      height: var(--scrollbar-width);
+    }
+  }
+}
+
+.table {
+  position: relative;
+}
+
+.table.isSelectable {
+  .th:first-child {
+    padding-left: var(--cell-h-padding);
+
+    .thContent {
+      padding-left: 0;
+    }
+  }
+}
+
+.thead {
+  display: flex;
+
+  color: var(--color-grey-600);
+}
+
+.tr {
+  display: flex;
+
+  &:hover {
+    .th,
+    .td {
+      background-color: var(--color-blue-jasmine-200);
+    }
+  }
+}
+
+.th,
+.td {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-width: var(--cell-width);
+  max-width: var(--cell-width);
+  height: 40px;
+
+  background-color: $white;
+  border: none;
+  border-top: var(--border-200);
+  border-right: var(--border-200);
+
+  @include text-xs();
+
+  &:first-child {
+    border-left: none;
+  }
+
+  &:last-child {
+    width: 100%;
+    min-width: var(--add-column-width);
+    max-width: none;
+
+    border-right: none;
+  }
+
+  &.isFirstColumnFixed {
+    &:nth-child(1) {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
+  &.isSecondColumnFixed {
+    &:nth-child(2) {
+      position: sticky;
+      left: var(--cell-width);
+      z-index: 1;
+    }
+  }
+}
+
+.th {
+  text-align: left;
+
+  box-shadow: 0 1px 0 0 var(--color-grey-200);
+}
+
+.td {
+  padding: 10px var(--cell-h-padding);
+}
+
+.thContent.thContent {
+  width: 100%;
+  padding: 10px var(--cell-h-padding);
+}
+
+.withArrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+}
+
+.tfoot {
+  display: flex;
+
+  color: var(--color-grey-500);
+
+  .td {
+    padding: 0;
+
+    border-bottom: var(--border-200);
+  }
+}
+
+.sellContent {
+  width: 100%;
+
+  > * {
+    overflow: inherit;
+
+    white-space: inherit;
+    text-overflow: inherit;
+  }
+}
+
+.checkbox {
+  width: auto;
+  min-width: 16px;
+  overflow: visible;
+}
+
+.addButton.addButton {
+  display: flex;
+  padding: 10px;
+
+  color: var(--color-grey-500);
+
+  &:hover {
+    color: var(--color-grey-500);
+  }
+}
+
+.tHeader {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  @include text-xs(500);
+}
