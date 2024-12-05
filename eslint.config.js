@@ -98,7 +98,6 @@ export default [
         'error',
         'never',
         {
-          js: 'always',
           svg: 'always',
           scss: 'always',
         },

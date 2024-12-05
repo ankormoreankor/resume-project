@@ -1,0 +1,19 @@
+@mixin transition($properties...) {
+  transition: 0.3s ease-in-out;
+  transition-property: $properties;
+}
+
+@mixin transition-fast($properties...) {
+  transition: 0.2s ease-in-out;
+  transition-property: $properties;
+}
+
+@mixin transition-instant($properties...) {
+  transition: 80ms ease-in-out;
+  transition-property: $properties;
+}
+
+@mixin transition-custom($length, $properties...) {
+  transition: $length ease-in-out;
+  transition-property: $properties;
+}

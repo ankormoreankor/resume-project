@@ -1,4 +1,4 @@
-@import 'src/scss/variables';
+@import '/src/scss/variables';
 
 :root {
   --dialog-max-width-wide: 600px;
@@ -20,7 +20,7 @@
 
   overflow: hidden;
 
-  background-color: $white;
+  background-color: var(--color-white);
   border-radius: 8px;
 
   transform: translate(-50%, -50%);

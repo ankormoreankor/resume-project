@@ -1,1 +1,65 @@
-@import '../../../styles/utility.module';
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buttonReset {
+  padding: 0;
+  color: inherit;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+
+  svg,
+  img {
+    display: block;
+  }
+}
+
+.buttonStateReset:hover,
+.buttonStateReset:focus,
+.buttonStateReset:active {
+  color: inherit;
+}
+
+.buttonReset:disabled {
+  cursor: default;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.linkReset.linkReset,
+.linkReset.linkReset:hover,
+.linkReset.linkReset:focus,
+.linkReset.linkReset:active {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+.capitalized::first-letter {
+  text-transform: capitalize;
+}
+
+.inputReset {
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}

@@ -1,0 +1,103 @@
+@mixin fixedSize($width, $height: $width) {
+  min-width: $width;
+  max-width: $width;
+  min-height: $height;
+  max-height: $height;
+}
+
+@mixin shape-round($size) {
+  @include fixedSize($size);
+  border-radius: 50%;
+}
+
+@mixin scrollbar($v, $h: $v) {
+  &::-webkit-scrollbar:vertical {
+    width: $v;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: $h;
+  }
+}
+
+@mixin activeBorder() {
+  border-color: $blue-jasmine-1400;
+  box-shadow: 0 0 0 2px #f0f0f0;
+}
+
+@mixin fill-available($props...) {
+  @each $prop in $props {
+    #{$prop}: -webkit-fill-available;
+    #{$prop}: -moz-available;
+    #{$prop}: fill-available;
+  }
+}
+
+// helper for fixing elements alignment
+@mixin ruler($top: 50%) {
+  &::after {
+    content: "[][][][][][][]";
+    position: fixed;
+    z-index: 10000;
+    top: $top;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-grey-400);
+    transform: translateY(-1px) rotate(90deg);
+    transform: translateY(-1px) rotate(0);
+    text-align: center;
+    color: #00000010;
+  }
+}
+
+@mixin pseudo-border() {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    border: var(--pseudo-border);
+  }
+}
+
+@mixin dragIndicator() {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+
+    border-radius: 10px;
+    pointer-events: none;
+  }
+
+  &::before {
+    background-color: color-mix(in srgb, var(--indicator-color) 10%, white);
+  }
+}
+
+@mixin semiTransparentDropdown() {
+  width: 144px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  box-shadow:
+    0 12px 16px -4px rgba(16, 24, 40, 0.1),
+    0 4px 6px -2px rgba(16, 24, 40, 0.05);
+  backdrop-filter: blur(20px);
+
+  [data-element="dropdown-menu-item"] {
+    &:hover:not([aria-disabled]) {
+      [data-element="dropdown-menu-item-content"] {
+        color: var(--color-blue-jasmine-1400);
+        background-color: var(--color-blue-jasmine-100);
+      }
+    }
+  }
+}

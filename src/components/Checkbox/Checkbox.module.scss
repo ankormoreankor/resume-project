@@ -1,23 +1,23 @@
-@import 'src/scss/variables';
+@import '/src/scss/variables';
 
 .root {
   --checkbox-size: 20px;
 
   &:hover:not(.isDisabled) {
     .checkbox {
-      border-color: $blue-jasmine-600;
+      border-color: var(--color-blue-jasmine-600);
     }
 
     .checkbox[data-state='checked'],
     .checkbox[data-state='indeterminate'] {
-      background-color: $blue-jasmine-1300;
-      border-color: $blue-jasmine-1300;
+      background-color: var(--color-blue-jasmine-1300);
+      border-color: var(--color-blue-jasmine-1300);
     }
   }
 
   &:focus-within:not(.isDisabled) {
     .checkbox {
-      box-shadow: 0 0 0 2px $brand-300;
+      box-shadow: 0 0 0 2px var(--color-brand-300);
     }
   }
 }
@@ -32,11 +32,11 @@
   min-height: var(--checkbox-size);
   max-height: var(--checkbox-size);
 
-  color: $white;
+  color: var(--color-white);
 
   line-height: 1;
 
-  background-color: $white;
+  background-color: var(--color-white);
   border: 1.5px solid var(--color-blue-jasmine-500);
 
   border-radius: 6px;
@@ -47,8 +47,8 @@
 
   &[data-state='checked'],
   &[data-state='indeterminate'] {
-    background-color: $blue-jasmine-1400;
-    border-color: $blue-jasmine-1400;
+    background-color: var(--color-blue-jasmine-1400);
+    border-color: var(--color-blue-jasmine-1400);
 
     &[data-disabled] {
       border-color: var(--color-blue-jasmine-500);
@@ -56,9 +56,9 @@
   }
 
   &[data-disabled] {
-    color: $blue-jasmine-600;
+    color: var(--color-blue-jasmine-600);
 
-    background-color: $blue-jasmine-400;
+    background-color: var(--color-blue-jasmine-400);
     cursor: default;
   }
 }
