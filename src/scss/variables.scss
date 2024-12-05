@@ -1,1 +1,151 @@
-@import '../../../styles/index';
+@import './text-mixins.scss';
+@import './common-mixins.scss';
+@import './animation.scss';
+
+:root {
+  --default-font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+
+  --color-white: #fff;
+
+  --color-grey-25: #fbfbfb;
+  --color-grey-50: #f9f9f9;
+  --color-grey-100: #f5f5f5;
+  --color-grey-200: #eee;
+  --color-grey-300: #e7e7e7;
+  --color-grey-350: #e2e2e2;
+  --color-grey-400: #dfdfdf;
+  --color-grey-500: #b7b7b7;
+  --color-grey-600: #878787;
+  --color-grey-700: #575757;
+  --color-grey-800: #303030;
+  --color-grey-900: #171717;
+
+  --color-brand-100: #f1fde2;
+  --color-brand-200: #e3fbc6;
+  --color-brand-300: #b4dd82;
+  --color-brand-400: #c8f88d;
+  --color-brand-500: #aef04c;
+  --color-brand-600: #a0d85b;
+  --color-brand-700: #6fb11d;
+  --color-brand-800: #54752d;
+  --color-brand-900: #263513;
+
+  --color-indication-green: #1bab6d;
+
+  --color-app-note: #2e80ff;
+  --color-app-task: #ffba39;
+  --color-app-wiki: #64cde4;
+  --color-app-goal: #6d60cf;
+  --color-app-feedback: #48abd6;
+  --color-app-contact: #f17072;
+  --color-app-whiteboard: #fecb62;
+  --color-app-dashboard: #f79653;
+  --color-app-process: #1fa88c;
+  --color-app-time-tracking: #4fbe61;
+  --color-app-diagram: #ffbd7c;
+  --color-app-survey: #d979b9;
+
+  --color-note-yellow: #fdf5d7;
+  --color-note-yellow-dark: #ebe1bc;
+  --color-note-blue: #cfdff7;
+  --color-note-blue-dark: #b9c8df;
+  --color-note-orange: #ffe5c8;
+  --color-note-orange-dark: #e7cdb0;
+
+  --color-action-default: #e4e4e4;
+  --color-action-active: #ffe5c8;
+  --color-action-tab-quant: #ecfdf3;
+  --color-action-tab-qual: #fffaeb;
+  --color-action-error: #f87369;
+  --color-action-error-light: #fee3e1;
+
+  --color-error-100: #fee4e2;
+  --color-error-200: #fef4f4;
+  --color-error-300: #fdedec;
+  --color-error-400: #fbdfdd;
+  --color-error-500: #f9c9c6;
+  --color-error-600: #f4a49e;
+  --color-error-700: #f07c73;
+  --color-error-800: #e83f32;
+  --color-error-900: #d4362a;
+  --color-error-1000: #8e241c;
+  --color-error-1100: #651a14;
+  --color-error-1200: #49130f;
+  --color-error-1300: #360e0b;
+  --color-error-1400: #1d0706;
+
+  --color-success-100: #d1fadf;
+  --color-success-600: #039855;
+
+  --color-rose-600: #e31b54;
+
+  --color-orange-100: #ffead5;
+  --color-orange-600: #fb6514;
+
+  --color-blue-jasmine-100: #f9f9f9;
+  --color-blue-jasmine-200: #f7f7f8;
+  --color-blue-jasmine-300: #f3f4f5;
+  --color-blue-jasmine-400: #eaebee;
+  --color-blue-jasmine-500: #e1e3e7;
+  --color-blue-jasmine-600: #d2d3da;
+  --color-blue-jasmine-700: #bfc1ca;
+  --color-blue-jasmine-800: #a9adb8;
+  --color-blue-jasmine-900: #9296a5;
+  --color-blue-jasmine-1000: #7a7f8f;
+  --color-blue-jasmine-1100: #636673;
+  --color-blue-jasmine-1200: #4b4d57;
+  --color-blue-jasmine-1300: #33353c;
+  --color-blue-jasmine-1400: #1d1e22;
+
+  --color-blue-50: #e9f2fc;
+  --color-blue-100: #dfe8f4;
+  --color-blue-150: #d8e4f8;
+  --color-blue-200: #c4d9f0;
+  --color-blue-900: #126aeb;
+
+  --color-text-selection: #b3d7fe;
+
+  --shadow-xs: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0px 2px 4px -2px rgba(16, 24, 40, 0.06), 0px 4px 8px -2px rgba(16, 24, 40, 0.1);
+  --shadow-md-bordered: 0px 2px 4px -2px rgba(16, 24, 40, 0.06), 0px 4px 8px -2px rgba(16, 24, 40, 0.1),
+    inset 0 1px 0 0 rgba(16, 24, 40, 0.03);
+  --shadow-lg: 0px 4px 6px -2px rgba(16, 24, 40, 0.05), 0px 12px 16px -4px rgba(16, 24, 40, 0.1);
+  --shadow-lg-bordered: 0px 4px 6px -2px rgba(16, 24, 40, 0.05), 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
+    inset 0 0 0 1px rgba(16, 24, 40, 0.06);
+  --shadow-xl: 0 20px 24px -4px rgba(16, 24, 40, 0.1), 0 8px 8px -4px rgba(16, 24, 40, 0.04);
+  --shadow-2xl: 0 24px 48px -12px rgba(16, 24, 40, 0.25);
+  --shadow-3xl: 0 32px 64px -12px rgba(16, 24, 40, 0.2);
+
+  --shadow-modal: 0px 8px 28px -6px rgba(28, 40, 65, 0.12), 0px 18px 88px -4px rgba(28, 40, 65, 0.14);
+  --shadow-image-control: 0 0 1px 0.75px rgba(16, 24, 40, 0.11), 0 3px 9px 1px rgba(16, 24, 40, 0.14);
+
+  --shadow-button-outline: 0px 0px 0px 1px rgba(13, 33, 83, 0.1), 0px 1px 2px 0px rgba(13, 33, 83, 0.08),
+    0px 2px 6px 0px rgba(13, 33, 83, 0.04);
+  --shadow-button-outline-disabled: 0px 0px 0px 1px rgba(13, 33, 83, 0.1), 0px 1px 2px 0px rgba(13, 33, 83, 0.08);
+  --shadow-button-solid: 0px 0px 0px 2px #474951 inset, 0px 0px 0px 1px var(--color-blue-jasmine-1300) inset;
+  --shadow-button-destructive: 0px 0px 0px 1px #ab150a inset, 0px 0px 0px 2px #f47e75 inset;
+
+  --shadow-focus-default: 0px 0px 0px 4px rgba(142, 211, 56, 0.15), 0px 0px 0px 1px #8ed338;
+  --shadow-focus-secondary: 0px 0px 0px 2px var(--color-grey-800);
+  --shadow-focus-tertiary: 0px 0px 0px 5px rgba(142, 211, 56, 0.15), 0px 0px 0px 1px var(--color-white),
+    0px 0px 0px 2px #8ed338;
+  --shadow-focus-destructive: 0px 0px 0px 2px rgba(232, 63, 50, 0.3) inset, 0px 0px 0px 3px var(--color-white) inset;
+
+  --shadow-input-default: 0px 0px 0px 1px rgba(37, 59, 88, 0.1);
+  --shadow-input-hover: 0px 1.5px 3px 0px rgba(144, 163, 188, 0.29), 0px 0px 0px 1px rgba(18, 55, 105, 0.15);
+  --shadow-input-active: 0px 0px 0px 4px rgba(162, 173, 189, 0.3), 0px 0px 0px 1.5px var(--color-blue-jasmine-1400);
+  --shadow-input-disabled: 0px 0px 0px 1px rgba(37, 59, 88, 0.1);
+  --shadow-input-destructive-default: var(--shadow-button-destructive);
+  --shadow-input-destructive-focus: 0px 0px 0px 3px rgba(232, 63, 50, 0.3), 0px 0px 0px 1px #fff;
+  --shadow-input-destructive-active: 0px 0px 0px 1.5px #ab150a inset, 0px 0px 0px 2.5px rgba(171, 21, 10, 0.15);
+
+  --border-100: 1px solid var(--color-grey-100);
+  --border-200: 1px solid var(--color-grey-200);
+  --border-300: 1px solid var(--color-grey-300);
+  --border-400: 1px solid var(--color-grey-400);
+  --border-800: 1px solid var(--color-grey-800);
+  --border-jasmine-400: 1px solid var(--color-blue-jasmine-400);
+  --border-jasmine-500: 1px solid var(--color-blue-jasmine-500);
+}

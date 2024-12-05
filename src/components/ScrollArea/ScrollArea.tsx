@@ -18,7 +18,7 @@ export interface ScrollAreaProps extends RadixScrollArea.ScrollAreaProps {
     /*
      * Threshold value (in pixels) to determine when to show the scroll down button. Default is 100 pixels
      */
-    treshold?: number;
+    threshold?: number;
   };
   isWithHorizontalScrollbar?: boolean;
 }
@@ -30,13 +30,13 @@ export const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
   ) => {
     const {
       isActive: isScrollDownButtonActive = false,
-      treshold: showScrollDownButtonTreshold = 100,
-      ...restScrolldownButtonProps
+      threshold: showScrollDownButtonThreshold = 100,
+      ...restScrollDownButtonProps
     } = scrollDownButtonProps;
 
     const scrollViewportRef = useRef<HTMLDivElement>(null);
 
-    const scrollDown = useCallback(() => {
+    const ScrollDown = useCallback(() => {
       if (scrollViewportRef.current) {
         scrollViewportRef.current.scrollTo({ behavior: 'smooth', top: scrollViewportRef.current.scrollHeight });
       }
@@ -59,7 +59,7 @@ export const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
 
         const { scrollHeight, clientHeight, scrollTop } = scrollViewportRef.current;
 
-        const isBelowThreshold = scrollHeight - scrollTop - clientHeight > showScrollDownButtonTreshold;
+        const isBelowThreshold = scrollHeight - scrollTop - clientHeight > showScrollDownButtonThreshold;
 
         setIsShowScrollDownButton(isBelowThreshold);
       };
@@ -67,7 +67,7 @@ export const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
       viewPortContainer.addEventListener('scroll', checkScrollPosition);
 
       return () => viewPortContainer.removeEventListener('scroll', checkScrollPosition);
-    }, [isScrollDownButtonActive, showScrollDownButtonTreshold]);
+    }, [isScrollDownButtonActive, showScrollDownButtonThreshold]);
 
     return (
       <RadixScrollArea.Root
@@ -85,8 +85,8 @@ export const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
               variant="secondary"
               icon={ArrowDownIcon}
               className={scss.scrollDownButton}
-              onClick={scrollDown}
-              {...restScrolldownButtonProps}
+              onClick={ScrollDown}
+              {...restScrollDownButtonProps}
             />
           )}
         </RadixScrollArea.Viewport>

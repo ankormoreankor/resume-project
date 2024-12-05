@@ -28,14 +28,14 @@
     "forceConsistentCasingInFileNames": true,
     "typeRoots": ["./node_modules/@types", "./types", "./../../node_modules"],
     "lib": ["dom", "dom.iterable", "es2023", "ESNext.Array"],
-    "types": ["vite/client"]
-  },
-  "paths": {
-    "@src/*": ["./src/*"],
-    "@components/*": ["./src/components/*"],
-    "@icons/*": ["./src/components/icons/*"],
-    "@hooks/*": ["./src/hooks/*"],
-    "@utils/*": ["./src/utils/*"]
+    "types": ["vite/client"],
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@icons/*": ["./src/components/icons/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

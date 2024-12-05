@@ -1,0 +1,94 @@
+$main-font-size: 14px;
+
+@mixin text($fs, $lh, $fw: 400) {
+  font-size: $fs;
+  line-height: $lh;
+
+  // 400 - is a default value for font-weight
+  // add it manually to change html element default fw value
+  @if $fw != 400 {
+    font-weight: $fw;
+  }
+}
+
+// Basic text
+
+@mixin text-xtn($fw: 400) {
+  @include text(0.6875rem, 1.125rem, $fw); /* 11px */
+  letter-spacing: 0.33px;
+}
+
+@mixin text-tn($fw: 400) {
+  @include text(0.75rem, 0.875rem, $fw); /* 12px */
+}
+
+@mixin text-xs($fw: 400) {
+  @include text(0.8125rem, 1.125rem, $fw); /* 13px */
+}
+
+@mixin text-sm($fw: 400) {
+  @include text(0.875rem, 1.25rem, $fw); /* 14px */
+}
+
+@mixin text-xmd($fw: 400) {
+  @include text(0.9375rem, 1.25rem, $fw); /* 15px */
+}
+
+@mixin text-md($fw: 400) {
+  @include text(1rem, 1.5rem, $fw); /* 16px */
+}
+
+@mixin text-lg($fw: 400) {
+  @include text(1.125rem, 1.75rem, $fw); /* 18px */
+}
+
+@mixin text-xl($fw: 400) {
+  @include text(1.25rem, 1.875rem, $fw); /* 20px */
+}
+
+// Display text
+
+@mixin text-display-xs($fw: 400) {
+  @include text(1.5rem, 2rem, $fw); /* 24px */
+
+  letter-spacing: -0.01em;
+}
+
+@mixin text-display-sm($fw: 400) {
+  @include text(1.875rem, 2.375rem, $fw); /* 30px */
+
+  letter-spacing: -0.01em;
+}
+
+@mixin text-display-md($fw: 400) {
+  @include text(2.25rem, 2.75rem, $fw); /* 36px */
+
+  letter-spacing: -0.01em;
+}
+
+@mixin text-display-lg($fw: 400) {
+  @include text(3rem, 3.75rem, $fw); /* 48px */
+
+  letter-spacing: -0.02em;
+}
+
+@mixin text-display-xl($fw: 400) {
+  @include text(3.75rem, 4.5rem, $fw); /* 60px */
+
+  letter-spacing: -0.02em;
+}
+
+@mixin text-display-2xl($fw: 400) {
+  @include text(4.5rem, 5.625rem, $fw); /* 72px */
+
+  letter-spacing: -0.02em;
+}
+
+// Other
+
+@mixin clamp() {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--clamped-lines, 3);
+}
